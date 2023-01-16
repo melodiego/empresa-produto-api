@@ -6,9 +6,9 @@ spring:
     banner-mode: "off"
     allow-circular-references: true
   datasource:
-    url: ${DB_POSTGRES_HOST_ENV_KEY}
-    username: ${DB_POSTGRES_USERNAME_ENV_KEY}
-    password: ${DB_POSTGRES_PASSWORD_ENV_KEY}
+    url: "jdbc:postgresql://postgres_db:5432/empresa_produto"
+    username: postgres
+    password: postgres
   application:
     name: empresa-produto-api
   mvc:
