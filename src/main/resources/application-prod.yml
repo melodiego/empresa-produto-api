@@ -1,0 +1,41 @@
+spring:
+  output:
+    ansi:
+      enabled: detect
+  main:
+    banner-mode: "off"
+    allow-circular-references: true
+  datasource:
+    url: ${DB_POSTGRES_HOST_ENV_KEY}
+    username: ${DB_POSTGRES_USERNAME_ENV_KEY}
+    password: ${DB_POSTGRES_PASSWORD_ENV_KEY}
+  application:
+    name: empresa-produto-api
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: /empresa-produto-api
+
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    org.hibernate.SQL: ERROR
+    org.hibernate: ERROR
+    org.apache.http: INFO
+    org.springframework.web: ERROR
+  file:
+    name: logs/empresa_produto_api.log
